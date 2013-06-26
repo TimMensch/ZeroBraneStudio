@@ -11,7 +11,6 @@ return {
     if not qc then
       local sep = win and ';' or ':' ;
 
-
       local default =
            win and ([[C:\Program Files\qc]]..sep..[[D:\Program Files\qc]]..sep..
                     [[C:\Program Files (x86)\qc]]..sep..[[D:\Program Files (x86)\qc]]..sep)
@@ -40,11 +39,11 @@ return {
     file = file or wfilename:GetFullPath()
 
     local mdb = MergeFullPath(GetPathWithSep(ide.editorFilename), "lualibs/mobdebug/?.lua")
-    local cmd = ('"%s" "%s" "%s"'):format(qc, rundebug and "-d "..mdb or "")
+    local cmd = ('"%s" %s'):format(qc, (rundebug and ("-d "..mdb)) or "")
 
     -- CommandLineRun(cmd,wdir,tooutput,nohide,stringcallback,uid,endcallback)
     return CommandLineRun(cmd,self:fworkdir(wfilename),true,false,nil,nil,
-      function() ide.debugger.pid = nil if rundebug then wx.wxRemoveFile(file) end end)
+      function() ide.debugger.pid = nil end)
   end,
   fprojdir = function(self,wfilename)
     return wfilename:GetPath(wx.wxPATH_GET_VOLUME)
