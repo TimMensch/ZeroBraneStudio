@@ -1,0 +1,193 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="Makefile"
+    WorkingDir=".">
+    <Config
+        Name="Release"
+        Type="Makefile"
+        OutputFile=""
+        CompilerConfigName="">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                SaveOption="SaveNone"
+                RunFromDir="%rw">
+                <Exec CmdLine='"zerobrane.exe"'/>
+            </Target>
+        </Menu>
+    </Config>
+    <CustomFolders>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go;*.lua">
+        </Folder>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if"/>
+        <Folder
+            Name="Resource Files"
+            Filters="*.ico;*.cur;*.dlg"/>
+        <Folder
+            Name="Bitmaps"
+            Filters="*.bmp"/>
+        <Folder
+            Name="Other Files"
+            Filters="">
+        </Folder>
+    </CustomFolders>
+    <Files AutoFolders="DirectoryView">
+        <Folder Name="interpreters">
+            <F N="interpreters/corona.lua"/>
+            <F N="interpreters/estrelashell.lua"/>
+            <F N="interpreters/gideros.lua"/>
+            <F N="interpreters/gslshell.lua"/>
+            <F N="interpreters/lfw.lua"/>
+            <F N="interpreters/love2d.lua"/>
+            <F N="interpreters/luadeb.lua"/>
+            <F N="interpreters/luxinia.lua"/>
+            <F N="interpreters/luxinia2.lua"/>
+            <F N="interpreters/marmalade.lua"/>
+            <F N="interpreters/moai.lua"/>
+            <F N="interpreters/qc.lua"/>
+        </Folder>
+        <Folder Name="lualibs">
+            <Folder Name="copas">
+                <F N="lualibs/copas/copas.lua"/>
+            </Folder>
+            <Folder Name="coxpcall">
+                <F N="lualibs/coxpcall/coxpcall.lua"/>
+            </Folder>
+            <Folder Name="luainspect">
+                <F N="lualibs/luainspect/ast.lua"/>
+                <F N="lualibs/luainspect/compat_env.lua"/>
+                <F N="lualibs/luainspect/dump.lua"/>
+                <F N="lualibs/luainspect/globals.lua"/>
+                <F N="lualibs/luainspect/init.lua"/>
+                <F N="lualibs/luainspect/signatures.lua"/>
+                <F N="lualibs/luainspect/typecheck.lua"/>
+                <F N="lualibs/luainspect/types.lua"/>
+            </Folder>
+            <Folder Name="metalua">
+                <Folder Name="metalua">
+                    <F N="lualibs/metalua/metalua/base.lua"/>
+                    <F N="lualibs/metalua/metalua/runtime.lua"/>
+                    <F N="lualibs/metalua/metalua/string2.lua"/>
+                    <F N="lualibs/metalua/metalua/table2.lua"/>
+                </Folder>
+                <F N="lualibs/metalua/compile.lua"/>
+                <F N="lualibs/metalua/gg.lua"/>
+                <F N="lualibs/metalua/lcode.lua"/>
+                <F N="lualibs/metalua/ldump.lua"/>
+                <F N="lualibs/metalua/lexer.lua"/>
+                <F N="lualibs/metalua/lopcodes.lua"/>
+                <F N="lualibs/metalua/metalua.lua"/>
+                <F N="lualibs/metalua/mlp_expr.lua"/>
+                <F N="lualibs/metalua/mlp_ext.lua"/>
+                <F N="lualibs/metalua/mlp_lexer.lua"/>
+                <F N="lualibs/metalua/mlp_meta.lua"/>
+                <F N="lualibs/metalua/mlp_misc.lua"/>
+                <F N="lualibs/metalua/mlp_stat.lua"/>
+                <F N="lualibs/metalua/mlp_table.lua"/>
+            </Folder>
+            <Folder Name="mobdebug">
+                <F N="lualibs/mobdebug/mobdebug.lua"/>
+            </Folder>
+            <Folder Name="socket">
+                <F N="lualibs/socket/ftp.lua"/>
+                <F N="lualibs/socket/http.lua"/>
+                <F N="lualibs/socket/smtp.lua"/>
+                <F N="lualibs/socket/tp.lua"/>
+                <F N="lualibs/socket/url.lua"/>
+            </Folder>
+            <Folder Name="ssl">
+                <F N="lualibs/ssl/https.lua"/>
+            </Folder>
+            <F N="lualibs/ltn12.lua"/>
+            <F N="lualibs/lua_lexer_loose.lua"/>
+            <F N="lualibs/lua_parser_loose.lua"/>
+            <F N="lualibs/mime.lua"/>
+            <F N="lualibs/socket.lua"/>
+            <F N="lualibs/ssl.lua"/>
+            <F N="lualibs/testwell.lua"/>
+        </Folder>
+        <Folder Name="src">
+            <Folder Name="editor">
+                <F N="src/editor/autocomplete.lua"/>
+                <F N="src/editor/commands.lua"/>
+                <F N="src/editor/debugger.lua"/>
+                <F N="src/editor/editor.lua"/>
+                <F N="src/editor/filetree.lua"/>
+                <F N="src/editor/findreplace.lua"/>
+                <F N="src/editor/gui.lua"/>
+                <F N="src/editor/ids.lua"/>
+                <F N="src/editor/inspect.lua"/>
+                <F N="src/editor/iofilters.lua"/>
+                <F N="src/editor/keymap.lua"/>
+                <F N="src/editor/markup.lua"/>
+                <F N="src/editor/menu_edit.lua"/>
+                <F N="src/editor/menu_file.lua"/>
+                <F N="src/editor/menu_help.lua"/>
+                <F N="src/editor/menu_project.lua"/>
+                <F N="src/editor/menu_search.lua"/>
+                <F N="src/editor/menu_tools.lua"/>
+                <F N="src/editor/menu_view.lua"/>
+                <F N="src/editor/output.lua"/>
+                <F N="src/editor/package.lua"/>
+                <F N="src/editor/proto.lua"/>
+                <F N="src/editor/settings.lua"/>
+                <F N="src/editor/shellbox.lua"/>
+                <F N="src/editor/singleinstance.lua"/>
+                <F N="src/editor/style.lua"/>
+            </Folder>
+            <F N="src/defs.lua"/>
+            <F N="src/main.lua"/>
+            <F N="src/util.lua"/>
+            <F N="src/version.lua"/>
+        </Folder>
+        <Folder Name="tools">
+            <F N="tools/cg.lua"/>
+            <F N="tools/clcc.lua"/>
+            <F N="tools/cstringify.lua"/>
+            <F N="tools/dx.lua"/>
+            <F N="tools/ffitoapi.lua"/>
+            <F N="tools/glslc.lua"/>
+            <F N="tools/luxviewres.lua"/>
+            <F N="tools/perforce-edit.lua"/>
+            <F N="tools/perforce-revert.lua"/>
+        </Folder>
+    </Files>
+</Project>
