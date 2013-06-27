@@ -109,7 +109,7 @@ local function isFileAlteredOnDisk(editor)
           GetIDEString("editormessage"),
           wx.wxOK + wx.wxCENTRE, ide.frame)
       elseif not editor:GetReadOnly() and modTime:IsValid() and oldModTime:IsEarlierThan(modTime) then
-        local ret = (edcfg.autoreload and wx.wxYES) or wx.wxMessageBox(
+        local ret = ((not openDocuments[id].isModified) and edcfg.autoreload and wx.wxYES) or wx.wxMessageBox(
           TR("File '%s' has been modified on disk."):format(fileName)
           .."\n"..TR("Do you want to reload it?"),
           GetIDEString("editormessage"),
