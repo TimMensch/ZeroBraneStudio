@@ -39,7 +39,11 @@ return {
     file = file or wfilename:GetFullPath()
 
     local mdb = MergeFullPath(GetPathWithSep(ide.editorFilename), "lualibs/mobdebug/?.lua")
-    local cmd = ('"%s" %s'):format(qc, (rundebug and ("-d "..mdb)) or "")
+    local host = (win and "win") or "osx"
+
+    local qc_path = MergeFullPath(GetPathWithSep(ide.editorFilename), "../qc/tools/lua/?.lua")
+    local qc_cpath = MergeFullPath(GetPathWithSep(ide.editorFilename), "../qc/tools/host/"..host.."/clibs/?.dll")
+    local cmd = ('"%s" %s'):format(qc, (rundebug and ("-d "..mdb..";"..qc_path.. " -c "..qc_cpath)) or "")
 
     -- CommandLineRun(cmd,wdir,tooutput,nohide,stringcallback,uid,endcallback)
     return CommandLineRun(cmd,self:fworkdir(wfilename),true,false,nil,nil,
