@@ -30,11 +30,16 @@ return {
       end
     end
 
+    local assets = MergeFullPath(ide.config.path.projectdir,"assets")
     local startWith = GetFullPathIfExists(ide.config.path.projectdir, "assets/lua/init.lua")
     if rundebug then
       -- start running the application right away
-      DebuggerAttachDefault({startwith = startWith,
-        runstart = ide.config.debugger.runonstart ~= false})
+      DebuggerAttachDefault(
+        {
+            startwith = startWith,
+            basedir = assets,
+            runstart = ide.config.debugger.runonstart ~= false
+        })
     end
 
     file = file or wfilename:GetFullPath()
