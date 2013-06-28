@@ -30,19 +30,22 @@ return {
       end
     end
 
+    local startWith = GetFullPathIfExists(ide.config.path.projectdir, "assets/lua/init.lua")
     if rundebug then
       -- start running the application right away
-      DebuggerAttachDefault({startwith = 'lua/init.lua',
+      DebuggerAttachDefault({startwith = startWith,
         runstart = ide.config.debugger.runonstart ~= false})
     end
 
     file = file or wfilename:GetFullPath()
 
-    local mdb = MergeFullPath(GetPathWithSep(ide.editorFilename), "lualibs/mobdebug/?.lua")
+    local mdb = MergeFullPath(GetPathWithSep(ide.editorFilename), "lualibs/mobdebug/?.lua") .. ';' ..
+                MergeFullPath(GetPathWithSep(ide.editorFilename), "lualibs/?.lua")
     local host = (win and "win") or "osx"
 
     local qc_path = MergeFullPath(GetPathWithSep(ide.editorFilename), "../qc/tools/lua/?.lua")
     local qc_cpath = MergeFullPath(GetPathWithSep(ide.editorFilename), "../qc/tools/host/"..host.."/clibs/?.dll")
+    local mdb_cpath = MergeFullPath(GetPathWithSep(ide.editorFilename), "bin/clibs/?.dll")
     local cmd = ('"%s" %s'):format(qc, (rundebug and ("-d "..mdb..";"..qc_path.. " -c "..qc_cpath)) or "")
 
     -- CommandLineRun(cmd,wdir,tooutput,nohide,stringcallback,uid,endcallback)
