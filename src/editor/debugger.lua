@@ -244,31 +244,21 @@ local function activateDocument(file, line, activatehow)
   -- (for example: 'mobdebug.lua').
   local content
 
-  -- create a copy of "file" without quotes (if any)
-  local _,stripped = file:match([=[^(["'])(.*)%1$]=])
-
-  -- stripped is nil if there were no quotes
-  if stripped then
-    if wx.wxFileName(stripped):FileExists() then
-      -- if the file passed in is just in quotes and exists as is, then
-      -- set file to equal the path with no quotes
-      file = stripped
-    elseif debugger.basedir then
-      -- if there's a basedir, then add that to the file and, if it
-      -- exists, assign it to file. If not, leave file as-is.
-      file = GetFullPathIfExists(debugger.basedir,stripped) or file
-    end
-
-    -- if we still can't find the file, then it's serialized content
-    if not wx.wxFileName(file):FileExists() then
-      local ok, res = loadsafe("return "..file)
-      if ok then content = res end
-    end
-  elseif debugger.basedir and not wx.wxFileName(file):FileExists() then
-    -- no quotes here, but not finding the file, so see if we can
-    -- find it under basedir
-    file = GetFullPathIfExists(debugger.basedir,file) or file
+  if not wx.wxFileName(file):FileExists() and file:find('^"') then
+    local ok, res = loadsafe("return "..file)
+    if ok then content = res end
   end
+
+
+  -- in some cases filename can be returned quoted if the chunk is loaded with
+  -- loadstring(chunk, "filename") instead of loadstring(chunk, "@filename")
+  if content then
+    -- if the returned content can be matched with a file, it's a file name
+    local fname = GetFullPathIfExists(debugger.basedir, content) or content
+    if wx.wxFileName(fname):FileExists() then file, content = fname, nil end
+  elseif not wx.wxIsAbsolutePath(file) and debugger.basedir then
+     file = debugger.basedir .. file
+   end
 
   local activated
   local indebugger = file:find('mobdebug%.lua$')
