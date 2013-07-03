@@ -22,7 +22,8 @@ local events = {
   onEditorNew =        function(self, editor) end,
   onEditorPreSave =    function(self, editor, filepath) end, -- return false
   onEditorPostSave =   function(self, editor) end,
-  onEditorActivated =  function(self, editor) end,
+  onEditorFocusLost =  function(self, editor) end,
+  onEditorFocusSet =   function(self, editor) end,
   onEditorKeyDown =    function(self, editor, event) end, -- return false
   onEditorCharAdded =  function(self, editor, event) end, -- return false
   onMenuEditor =       function(self, menu, editor, event) end,
@@ -32,6 +33,8 @@ local events = {
   onProjectClose =     function(self, project) end,
   onInterpreterLoad =  function(self, interpreter) end,
   onInterpreterClose = function(self, interpreter) end,
+  onAppFocusLost =     function(self, app) end,
+  onAppFocusSet =      function(self, app) end,
 }
 
 --[[ Uncomment this to see event names printed in the Output window

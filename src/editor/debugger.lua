@@ -249,7 +249,6 @@ local function activateDocument(file, line, activatehow)
     if ok then content = res end
   end
 
-
   -- in some cases filename can be returned quoted if the chunk is loaded with
   -- loadstring(chunk, "filename") instead of loadstring(chunk, "@filename")
   if content then
@@ -257,8 +256,8 @@ local function activateDocument(file, line, activatehow)
     local fname = GetFullPathIfExists(debugger.basedir, content) or content
     if wx.wxFileName(fname):FileExists() then file, content = fname, nil end
   elseif not wx.wxIsAbsolutePath(file) and debugger.basedir then
-     file = debugger.basedir .. file
-   end
+    file = debugger.basedir .. file
+  end
 
   local activated
   local indebugger = file:find('mobdebug%.lua$')
