@@ -70,6 +70,52 @@
         </Folder>
     </CustomFolders>
     <Files AutoFolders="DirectoryView">
+        <Folder Name="api">
+            <Folder Name="cg">
+                <F N="api/cg/stdlib.lua"/>
+            </Folder>
+            <Folder Name="glsl">
+                <F N="api/glsl/std.lua"/>
+            </Folder>
+            <Folder Name="lua">
+                <F N="api/lua/anttweakbar.lua"/>
+                <F N="api/lua/assimp20.lua"/>
+                <F N="api/lua/baselib.lua"/>
+                <F N="api/lua/corona.lua"/>
+                <F N="api/lua/gideros.lua"/>
+                <F N="api/lua/glewgl.lua"/>
+                <F N="api/lua/glfw.lua"/>
+                <F N="api/lua/glfw3.lua"/>
+                <F N="api/lua/love2d.lua"/>
+                <F N="api/lua/luajit2.lua"/>
+                <F N="api/lua/luxgfx.lua"/>
+                <F N="api/lua/luxiniaapi.lua"/>
+                <F N="api/lua/luxmath.lua"/>
+                <F N="api/lua/luxscene.lua"/>
+                <F N="api/lua/marmalade.lua"/>
+                <F N="api/lua/moai.lua"/>
+                <F N="api/lua/wxwidgets.lua"/>
+            </Folder>
+            <Folder Name="opencl">
+                <F N="api/opencl/std.lua"/>
+            </Folder>
+        </Folder>
+        <Folder Name="cfg">
+            <Folder Name="i18n">
+                <F N="cfg/i18n/cn.lua"/>
+                <F N="cfg/i18n/en.lua"/>
+                <F N="cfg/i18n/es.lua"/>
+                <F N="cfg/i18n/fr.lua"/>
+                <F N="cfg/i18n/it.lua"/>
+                <F N="cfg/i18n/ru.lua"/>
+            </Folder>
+            <F N="cfg/estrela.lua"/>
+            <F N="cfg/scheme-picker.lua"/>
+            <F N="cfg/tomorrow.lua"/>
+            <F N="cfg/user-sample.lua"/>
+            <F N="cfg/user-snippet.lua"/>
+            <F N="cfg/xcode-keys.lua"/>
+        </Folder>
         <Folder Name="interpreters">
             <F N="interpreters/corona.lua"/>
             <F N="interpreters/estrelashell.lua"/>
@@ -143,6 +189,23 @@
             <F N="lualibs/socket.lua"/>
             <F N="lualibs/ssl.lua"/>
             <F N="lualibs/testwell.lua"/>
+        </Folder>
+        <Folder Name="packages">
+            <F N="packages/sample.lua"/>
+            <F N="packages/saveonappswitch.lua"/>
+        </Folder>
+        <Folder Name="spec">
+            <F N="spec/cg.lua"/>
+            <F N="spec/cpp.lua"/>
+            <F N="spec/glsl.lua"/>
+            <F N="spec/html.lua"/>
+            <F N="spec/lua.lua"/>
+            <F N="spec/luxres.lua"/>
+            <F N="spec/oglgpuprog.lua"/>
+            <F N="spec/opencl.lua"/>
+            <F N="spec/ptx.lua"/>
+            <F N="spec/sql.lua"/>
+            <F N="spec/text.lua"/>
         </Folder>
         <Folder Name="src">
             <Folder Name="editor">
